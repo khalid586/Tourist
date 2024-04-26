@@ -1,8 +1,15 @@
-# React + Vite
+# Live website
+[Live website](https://real-estate-auth-b141a.web.app/login)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
+- User Authentication
+- CSS Animations
+- Private Routes
+- Google and Github authentication
+- Multiple Authentication options
 
-Currently, two official plugins are available:
+# Packages
+- Swiper slider
+- React leaftlet
+- React form 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
