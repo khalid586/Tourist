@@ -63,7 +63,7 @@ function AddTouristSpot() {
             <button className={`${!tab ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Recently Added</button>
         </div>
 
-        <div className=' m-4 p-4 rounded-lg flex justify-center min-h-[46vh]'>
+        <div className=' m-4 p-4 rounded-lg flex justify-center'>
             
             {
                 tab ?

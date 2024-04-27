@@ -7,7 +7,9 @@ function Root() {
   return (
     <div className='font-custom'>
         <NavBar></NavBar>
-        <Outlet></Outlet>
+        <div className='min-h-[70vh]'>
+          <Outlet></Outlet>
+        </div>
         <Footer></Footer>
     </div>
   )

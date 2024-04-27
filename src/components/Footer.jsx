@@ -4,8 +4,8 @@ function Footer() {
   return (
 
 
-<footer class="bg-white dark:bg-gray-900 w-full mt-16">
-    <div class=" w-full ">
+<footer class="bg-white dark:bg-gray-900 w-full">
+    <div class=" w-full p-4">
       <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
         <div>
             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
