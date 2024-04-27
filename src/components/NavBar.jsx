@@ -33,7 +33,7 @@ function NavBar() {
     return (
       <>    
           <div className='flex justify-between  font-semibold text-xs md:text-base pb-2'>
-              <NavLink className= "mt-3" to = "/">
+              <NavLink className= "mt-5" to = "/">
   
                   <span className="pl-2 self-center whitespace-nowrap text-base md:text-xl font-semibold dark:text-white">Tourist</span>
               </NavLink>

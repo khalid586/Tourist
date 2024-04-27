@@ -16,7 +16,7 @@ function HomePage() {
     useEffect(()=>{
         fetch('https://b9a10-server-side-khalid586-theta.vercel.app/places')
         .then(res => res.json())
-        .then(data => {setPlaces(data); setLoading(false);})
+        .then(data => {setPlaces(data.slice(0,6)); setLoading(false);})
         .catch(error =>{
             toast.error(error);
             setLoading(false);
