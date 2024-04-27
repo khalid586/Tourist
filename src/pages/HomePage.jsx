@@ -25,7 +25,7 @@ function HomePage() {
 
 
     return(
-        <>
+        <div className='min-h-[46vh]'>
         <Helmet>
             <title>Tourist | Home</title>
         </Helmet>     
@@ -50,7 +50,7 @@ function HomePage() {
             }
             </div>
         }   
-        </>
+        </div>
     )
 }
 

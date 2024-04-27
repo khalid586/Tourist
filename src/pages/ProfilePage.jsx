@@ -29,7 +29,7 @@ function ProfilePage() {
         </Helmet>
         {
             loading ? <Spinner></Spinner> : 
-            <div>
+            <div className='min-h-[46vh]'>
                 {
                     user ? 
                     <div className=' m-4 rounded-2xl text-center my-8'>

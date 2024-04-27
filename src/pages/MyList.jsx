@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import Spinner from '../components/Spinner'
+import { toast } from 'react-toastify';
 
 
 function MyList() {
@@ -64,7 +65,7 @@ function MyList() {
             <Helmet>
                 <title>Tourist | My list</title>
             </Helmet>
-            <div className='flex flex-col items-center'>
+            <div className='flex flex-col items-center min-h-[45vh]'>
                 { loading?<Spinner></Spinner>:places.length ?
                     places.map((place,index) => <li className='m-2 flex items-center gap-2' key = {index}><img style={{width:'70px',height:'50px'}} src={place.photoUrl}></img>{place.name} <button onClick={()=>handleDelete(place._id)} className='ml-4 bg-red-600 text-white hover:bg-red-500  p-1 rounded-full px-4'>Delete</button></li>)
                     :
