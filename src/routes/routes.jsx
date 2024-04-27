@@ -3,7 +3,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root";
 import HomePage from "../pages/HomePage";
 import AddTouristSpot from "../pages/AddTouristSpot";
-import LoginPage from "../pages/LoginPage";
+import LoginPage from "../pages/LoginPage"; 
+import ProfilePage from "../pages/ProfilePage";
+import RegisterPage from "../pages/RegisterPage";
+import MyList from "../pages/MyList";
+import ProtectedRoute from "./ProtectedRoute";
   
  export const router = createBrowserRouter([
     {
@@ -17,12 +21,24 @@ import LoginPage from "../pages/LoginPage";
         {
           path:'/add_spot',
           element:<AddTouristSpot></AddTouristSpot>,
-          loader:() => fetch('http://localhost:5000/users/')
+          loader:() => fetch('http://localhost:5000/places/')
         },
         {
           path:'/login',
           element:<LoginPage></LoginPage>,
         },
+        {
+          path:'/profile',
+          element:<ProfilePage></ProfilePage>,
+        },
+        {
+          path:'/register',
+          element:<RegisterPage></RegisterPage>
+        },
+        {
+          path:'/mylist',
+          element: <ProtectedRoute><MyList></MyList></ProtectedRoute>
+        }
 
       ]
     },

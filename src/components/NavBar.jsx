@@ -40,14 +40,14 @@ function NavBar() {
                   <NavLink to="/" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black p-2'}><p className='flex gap-1 items-center'><IoHomeOutline className='text-green-500'></IoHomeOutline> Home</p></NavLink>
                   <NavLink to="/add_spot" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black p-2'}><p className='flex gap-1 items-center'><BsBuilding className='text-green-500'></BsBuilding> Add Spot</p></NavLink>
                   {
-                      user && <NavLink to="/update" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 p-2 bg-blue-50':'text-black p-2'}>     <p className='items-center flex gap-1'><PiUserSwitchDuotone className='text-green-500'></PiUserSwitchDuotone> Update profile</p></NavLink>
+                      user && <NavLink to="/mylist" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 p-2 bg-blue-50':'text-black p-2'}>     <p className='items-center flex gap-1'><PiUserSwitchDuotone className='text-green-500'></PiUserSwitchDuotone>My List</p></NavLink>
                   }
               </div> 
               <div className='pt-4 mr-2'> 
               {   loading? <Spinner></Spinner>:
                   <div>
                   {
-                      user ? <Link to = '/profile' className='flex'><img className=' border-4 border-green-400 w-[30px] h-[30px] rounded-full' src={(user.photoURL && imgAvailable) || '/All assets/icons8-user-80.png'} title={user.displayName} onError={handleError} alt='' /></Link>:
+                      user ? <Link to = '/profile' className='flex'><img className=' border-4 border-green-400 w-[30px] h-[30px] rounded-full' src={(user?.photoURL && imgAvailable)?user.photoURL: '/All assets/icons8-user-80.png'} title={user.displayName} onError={handleError} alt='' /></Link>:
                       <NavLink to = '/login'  className={({isActive})=>isActive?`px-4 py-2 rounded-3xl bg-green-100 text-green-700 `:`${style} `}>login</NavLink>
                   }
                   </div>

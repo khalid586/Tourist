@@ -3,22 +3,22 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 function AddTouristSpot() {
-    const {user} = useContext(AuthContext);
-    console.log(user)
+    const {place} = useContext(AuthContext);
+    console.log(place)
   
     const loadedData = useLoaderData();
 
-    const [users,setUsers] = useState(loadedData);
+    const [places,setPlaces] = useState(loadedData);
 
-    function handleDelete(userId){
-        fetch(`http://localhost:5000/users/${userId}`,{
+    function handleDelete(placeId){
+        fetch(`http://localhost:5000/places/${placeId}`,{
             method:'delete',
         })
         .then(res => res.json())
         .then(data =>{
             if(data.deletedCount){
-                const currUsers = users.filter(user => user._id != userId)
-                setUsers(currUsers);
+                const currplaces = places.filter(place => place._id != placeId)
+                setPlaces(currplaces);
             }
         })
     }
@@ -28,21 +28,21 @@ function AddTouristSpot() {
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        const user = {name,email};
+        const place = {name,email};
 
         form.reset();
 
-        fetch('http://localhost:5000/users/',{
+        fetch('http://localhost:5000/places/',{
             method:'post',
             headers:{
                 'content-type':"application/json"
             },
-            body:JSON.stringify(user)
+            body:JSON.stringify(place)
         })
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            setUsers([...users,user]);
+            setPlaces([...places,place]);
         })
     
     }
@@ -52,7 +52,7 @@ function AddTouristSpot() {
             
             <div>
                 {
-                    users.map(user => <li key = {user._id}>{user.name} --------- {user.email} <button onClick={()=>handleDelete(user._id)} className='ml-4 bg-gray-200 p-1 rounded-full px-4'>X</button></li>)
+                    places.map(place => <li key = {place._id}>{place.name} --------- {place.email} <button onClick={()=>handleDelete(place._id)} className='ml-4 bg-gray-200 p-1 rounded-full px-4'>X</button></li>)
                 }
             </div>
 
