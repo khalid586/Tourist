@@ -8,11 +8,14 @@ import ProfilePage from "../pages/ProfilePage";
 import RegisterPage from "../pages/RegisterPage";
 import MyList from "../pages/MyList";
 import ProtectedRoute from "./ProtectedRoute";
+import PlaceDetails from "../pages/PlaceDetails";
+import ErrorPage from "../pages/ErrorPage";
   
  export const router = createBrowserRouter([
     {
       path: "/",
-      element:<Root></Root> ,      
+      element:<Root></Root> ,  
+      errorElement:<ErrorPage></ErrorPage>, 
       children:[
         {
           path:'/',
@@ -37,6 +40,11 @@ import ProtectedRoute from "./ProtectedRoute";
         {
           path:'/mylist',
           element: <ProtectedRoute><MyList></MyList></ProtectedRoute>
+        },
+        {
+          path:'/details/:id',
+          element:<PlaceDetails></PlaceDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
         }
 
       ]
