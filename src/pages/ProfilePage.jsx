@@ -46,7 +46,7 @@ function ProfilePage() {
                     
                     :
 
-                    <p><Navigate to = '/login'></Navigate></p>
+                    <p><Navigate to = '/'></Navigate></p>
                 }
             </div>
         }

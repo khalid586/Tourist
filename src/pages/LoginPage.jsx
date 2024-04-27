@@ -82,7 +82,7 @@ function LoginPage() {
         <>
             <Helmet>
                 <title>
-                    Estate | Login
+                    Tourist | Login
                 </title>
             </Helmet>
             <div className='text-center text-4xl my-4 font-bold'>Login</div>

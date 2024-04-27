@@ -57,7 +57,7 @@ function RegisterPage() {
     return (
         <>
             <Helmet>
-                <title>Estate | Register</title>
+                <title>Tourist | Register</title>
             </Helmet>
             <div className='text-center text-4xl my-4 font-bold'>Register</div>
             

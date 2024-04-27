@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import { Button, Navbar } from 'flowbite-react';
-// import { AuthContext } from '../providers/AuthProvider';
 import { IoHomeOutline } from "react-icons/io5";
 import { BsBuilding } from "react-icons/bs";
 import { PiUserSwitchDuotone } from "react-icons/pi";
 import { AuthContext } from '../providers/AuthProvider';
+import { FcGlobe } from "react-icons/fc";
+
 
 function NavBar() {
 
@@ -34,11 +34,11 @@ function NavBar() {
           <div className='flex justify-between  font-semibold text-xs md:text-base pb-2'>
               <NavLink className= "mt-3" to = "/">
   
-                  <span className="pl-2 self-center whitespace-nowrap text-base md:text-xl font-semibold dark:text-white">Estate</span>
+                  <span className="pl-2 self-center whitespace-nowrap text-base md:text-xl font-semibold dark:text-white">Tourist</span>
               </NavLink>
               <div className='flex gap-2 justify-center md:w-2/3 mt-2'>
                   <NavLink to="/" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black p-2'}><p className='flex gap-1 items-center'><IoHomeOutline className='text-green-500'></IoHomeOutline> Home</p></NavLink>
-                  <NavLink to="/add_spot" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black p-2'}><p className='flex gap-1 items-center'><BsBuilding className='text-green-500'></BsBuilding> Add Spot</p></NavLink>
+                  <NavLink to="/add_spot" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black p-2'}><p className='flex gap-1 items-center'><FcGlobe className='text-green-500'></FcGlobe> Add Spot</p></NavLink>
                   {
                       user && <NavLink to="/mylist" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 p-2 bg-blue-50':'text-black p-2'}>     <p className='items-center flex gap-1'><PiUserSwitchDuotone className='text-green-500'></PiUserSwitchDuotone>My List</p></NavLink>
                   }
