@@ -14,7 +14,7 @@ function AddTouristSpot() {
     const [tab,setTab] = useState(true);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/places/${user.email}`)
+        fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/places/${user.email}`)
         .then(res => res.json())
         .then(data => setPlaces(data))
     },[])
@@ -26,11 +26,12 @@ function AddTouristSpot() {
         const country = form.country.value;
         const photoUrl = form.photoUrl.value;
         const email = user.email;
-        const place = {name,country,photoUrl,email};
+        const userName = user.displayName;
+        const place = {name,country,photoUrl,email,userName};
 
         form.reset();
 
-        fetch('http://localhost:5000/places/',{
+        fetch('https://b9a10-server-side-khalid586-theta.vercel.app/places/',{
             method:'post',
             headers:{
                 'content-type':"application/json"

@@ -44,7 +44,7 @@ import ErrorPage from "../pages/ErrorPage";
         {
           path:'/details/:id',
           element:<PlaceDetails></PlaceDetails>,
-          loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
+          loader:({params})=>fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/details/${params.id}`)
         }
 
       ]
