@@ -20,9 +20,12 @@ function HomePage() {
                 {
                     places.map(
                         place =>
-                        <div>
-                            <img src={place.photoUrl}></img>
-                            <p className='font-semibold '>{place.name}</p>
+                        <div >
+                            <img style={{ width:'500px', height: '300px' }} src={place.photoUrl}></img>
+                            <div className='flex items-center justify-between'>                            
+                                <p className='font-semibold '>{place.name}</p>
+                                <p className='text-xs font-semibold'>Posted by: {place.email}</p>
+                            </div>
                             <p className=''>{place.country}</p>
                         </div>
                     )
