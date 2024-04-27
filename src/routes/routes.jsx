@@ -29,7 +29,7 @@ import ProtectedRoute from "./ProtectedRoute";
         },
         {
           path:'/profile',
-          element:<ProfilePage></ProfilePage>,
+          element:<ProtectedRoute><ProfilePage></ProfilePage></ProtectedRoute>,
         },
         {
           path:'/register',

@@ -32,7 +32,7 @@ function ProfilePage() {
             <div>
                 {
                     user ? 
-                    <div className='border m-4 rounded-2xl border-black text-center my-8'>
+                    <div className=' m-4 rounded-2xl text-center my-8'>
                             <p className='my-2 text-2xl font-bold'>Welcome!!!</p>
                             <div className='items-center justify-center flex gap-2'>
                                 <p className='flex justify-center my-4'>

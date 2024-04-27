@@ -48,7 +48,9 @@ function AddTouristSpot() {
             console.log(data)
             if(data.acknowledged) toast.success('Spot added successfully')
             setPlaces([...places,place]);
-            setTab(!tab);
+            setTimeout(()=>{
+                setTab(!tab);
+            },1500)
         })
     
     }
