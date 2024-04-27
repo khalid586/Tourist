@@ -10,6 +10,7 @@ import MyList from "../pages/MyList";
 import ProtectedRoute from "./ProtectedRoute";
 import PlaceDetails from "../pages/PlaceDetails";
 import ErrorPage from "../pages/ErrorPage";
+import UpdatePage from "../pages/UpdatePage";
   
  export const router = createBrowserRouter([
     {
@@ -40,6 +41,11 @@ import ErrorPage from "../pages/ErrorPage";
         {
           path:'/mylist',
           element: <ProtectedRoute><MyList></MyList></ProtectedRoute>
+        },
+        {
+          path:'/update/:id',
+          element: <ProtectedRoute><UpdatePage></UpdatePage> </ProtectedRoute>,
+          loader:({params}) => fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/details/${params.id}`)
         },
         {
           path:'/details/:id',

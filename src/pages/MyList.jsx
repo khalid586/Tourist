@@ -4,6 +4,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import Spinner from '../components/Spinner'
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 
 function MyList() {
@@ -67,7 +68,7 @@ function MyList() {
             </Helmet>
             <div className='flex flex-col items-center '>
                 { loading?<Spinner></Spinner>:places.length ?
-                    places.map((place,index) => <li className='m-2 flex items-center gap-2' key = {index}><img style={{width:'70px',height:'50px'}} src={place.photoUrl}></img>{place.name} <button onClick={()=>handleDelete(place._id)} className='ml-4 bg-red-600 text-white hover:bg-red-500  p-1 rounded-full px-4'>Delete</button></li>)
+                    places.map((place,index) => <li className='m-2 flex items-center gap-2' key = {index}><img style={{width:'70px',height:'50px'}} src={place.photoUrl}></img>{place.name} <Link to ={ `/update/${place._id}`} className='px-4 py-2 ml-4 bg-green-400 rounded-full text-white'>Update</Link> <button onClick={()=>handleDelete(place._id)} className='bg-red-600 text-white hover:bg-red-500  p-2 rounded-full px-4'>Delete</button></li>)
                     :
                     <p>Recently no places have been added!</p>
                 }
