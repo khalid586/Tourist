@@ -70,20 +70,15 @@ function AddTouristSpot() {
             <title>Tourist | Add spot</title>
         </Helmet>
 
-        <div className='flex justify-center m-4 p-2 gap-2'>
-            <button className={`${tab ? active:nonActive}  px-4 py-2 rounded-3xl`} onClick={()=>setTab(!tab)}>Add Spot</button>
-            <button className={`${!tab ? active:nonActive} px-4 py-2 rounded-3xl`} onClick={()=>setTab(!tab)}>Recently Added</button>
+        <div className='flex justify-center m-4 p-2 gap-2 font-semibold'>
+            <button className={`${tab ? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Add Spot</button>
+            <button className={`${!tab ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Recently Added</button>
         </div>
 
         <div className=' m-4 p-4 rounded-lg flex justify-center'>
             
-            <div>
-                { !tab &&
-                    places.map((place,index) => <li className='flex items-center gap-2' key = {index}><img className='w-20' src={place.photoUrl}></img>{place.name} <button onClick={()=>handleDelete(place._id)} className='ml-4 bg-gray-200 p-1 rounded-full px-4'>Delete</button></li>)
-                }
-            </div>
             {
-                tab &&
+                tab ?
                 <form onSubmit={handleSubmit} className="min-w-80 mx-auto">
                 <div className="mb-5 ">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place name</label>
@@ -101,7 +96,15 @@ function AddTouristSpot() {
 
                 <button type="submit" className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add Place</button>
             
-            </form>
+            </form> :
+
+                <div >
+                { places.length ?
+                    places.map((place,index) => <li className='m-2 flex items-center gap-2' key = {index}><img style={{width:'70px',height:'50px'}} src={place.photoUrl}></img>{place.name} <button onClick={()=>handleDelete(place._id)} className='ml-4 bg-gray-200 p-1 rounded-full px-4'>Delete</button></li>)
+                    :
+                    <p>Recently no places have been added!</p>
+                }
+                </div>
             }
         </div>
         <ToastContainer></ToastContainer>

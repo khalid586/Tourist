@@ -20,13 +20,15 @@ function HomePage() {
                 {
                     places.map(
                         place =>
-                        <div >
-                            <img style={{ width:'500px', height: '300px' }} src={place.photoUrl}></img>
-                            <div className='flex items-center justify-between'>                            
-                                <p className='font-semibold '>{place.name}</p>
-                                <p className='text-xs font-semibold'>Posted by: {place.email}</p>
+                        <div className=''>
+                            <img className='rounded-xl' style={{ width:'500px', height: '300px' }} src={place.photoUrl}></img>
+                            <div className='mx-2 my-1'>
+                                <div className='flex items-center justify-between'>                            
+                                    <p className='font-semibold '>{place.name}</p>
+                                    <p className='text-xs font-semibold overflow-hidden overflow-ellipsis'>Posted by: {place.email}</p>
+                                </div>
+                                <p className=''>{place.country}</p>
                             </div>
-                            <p className=''>{place.country}</p>
                         </div>
                     )
                 }
