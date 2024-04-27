@@ -53,6 +53,10 @@ function MyList() {
             setPlaces(data);
             setLoading(false);
         })
+        .catch(error =>{
+            toast.error(error);
+            setLoading(false);
+        })
     },[])
 
     return (

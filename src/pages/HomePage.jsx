@@ -5,6 +5,7 @@ import { GrMapLocation } from "react-icons/gr";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { MdCloudUpload } from "react-icons/md";
 import Spinner from '../components/Spinner';
+import { toast } from 'react-toastify';
 
 
 
@@ -16,6 +17,10 @@ function HomePage() {
         fetch('https://b9a10-server-side-khalid586-theta.vercel.app/places')
         .then(res => res.json())
         .then(data => {setPlaces(data); setLoading(false);})
+        .catch(error =>{
+            toast.error(error);
+            setLoading(false);
+        })
     },[])
 
 
