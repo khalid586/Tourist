@@ -21,7 +21,6 @@ import ProtectedRoute from "./ProtectedRoute";
         {
           path:'/add_spot',
           element:<ProtectedRoute> <AddTouristSpot></AddTouristSpot></ProtectedRoute> ,
-          loader:() => fetch('http://localhost:5000/places/')
         },
         {
           path:'/login',
