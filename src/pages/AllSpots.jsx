@@ -32,7 +32,7 @@ function AllSpots() {
                  <button className='rounded-full px-4 py-2 bg-green-500 flex gap-2 items-center' onClick={handleClick}><FaSortAlphaDown className=''></FaSortAlphaDown> Sort</button>
             </div>
 
-            <div className='grid grid-cols-4 mx-4 my-4 gap-2'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-4 my-4 gap-2'>
                 {
                     sortedPlaces.map(place => <SingleItem applySort =  {true} place={place}></SingleItem>)
                 }
