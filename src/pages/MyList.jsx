@@ -67,9 +67,9 @@ function MyList() {
             <Helmet>
                 <title>Tourist | My list</title>
             </Helmet>
-            <div className='grid justify-center  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center '>
+            <div className='mx-4 gap-4 grid   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-cent '>
                 { loading? <Spinner></Spinner>:places.length ?
-                    places.map((place,index) => <div className='m-8'> <SingleItem key = {index} handleDelete = {handleDelete} place={place}></SingleItem> </div> )
+                    places.map((place,index) => <div className=''> <SingleItem key = {index} handleDelete = {handleDelete} place={place}></SingleItem> </div> )
                     :
                     <p className=''>Recently no places have been added!</p>
                 }
