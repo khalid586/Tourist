@@ -9,7 +9,7 @@ function UpdatePage() {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
-    const { _id, name, country, photoUrl,location, email, userName, avgCost, seasonality, description } = data;
+    const { _id, name, country, photoUrl,location, email, userName, avgCost, seasonality, description,travelTime,visitorsPerYear } = data;
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -19,6 +19,9 @@ function UpdatePage() {
         const country = form.country.value;
         const photoUrl = form.photoUrl.value;
         const avgCost = form.avgCost.value;
+        const visitorsPerYear = form.visitorsPerYear.value;
+        const travelTime = form.travelTime.value;
+
         const seasonality = Array.from(form.querySelectorAll('input[name="seasonality"]:checked')).map(input => input.value);
 
         const description = form.description.value;
@@ -31,7 +34,9 @@ function UpdatePage() {
             seasonality,
             description,
             email,
-            userName
+            userName,
+            visitorsPerYear,
+            travelTime,
         };
 
         fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/update/${_id}`, {
@@ -88,9 +93,19 @@ function UpdatePage() {
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Average Cost</label>
                             <input defaultValue={avgCost} type="number" name='avgCost' id="avgCost" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="75000" required />
                         </div>
+                        <div className="mb-5 ">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total visitors/year</label>
+                            <input defaultValue={visitorsPerYear} type="number" name="visitorsPerYear" id="visitorsPerYear" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="7000" required />
+                        </div>
+                    </div>
+                    <div className='flex gap-2'>
+                        <div className="">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Travel Time (Days)</label>
+                            <input defaultValue={travelTime} type="number" name="travelTime" id="travelTime" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="7" required />
+                        </div>
                         <div className="">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seasonality</label>
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-wrap gap-2 mt-4">
                                 <label className="inline-flex items-center">
                                     <input type="checkbox" defaultChecked={seasonality.includes('winter')} name="seasonality" value="winter" className="form-checkbox h-4 w-4 text-green-500" />
                                     <span className="ml-2 text-sm">Winter</span>
