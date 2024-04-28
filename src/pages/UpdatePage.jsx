@@ -34,11 +34,16 @@ function UpdatePage() {
         })
         .then(res => res.json())
         .then(data =>{
-            if(data.modifiedCount){
-                toast.success("Details updated Successfully")
-                
-                setTimeout(() =>  navigate('/mylist'),2000)
-               
+            console.log(data)
+            if(data.acknowledged){
+                if(data.modifiedCount){
+                    toast.success("Details updated Successfully")
+                    
+                    setTimeout(() =>  navigate('/mylist'),2000)
+                   
+                }else{
+                    toast.error("You haven't changed any information")
+                }
             }
         })
         .catch(error => toast(error))
