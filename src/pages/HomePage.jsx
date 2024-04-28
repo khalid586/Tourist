@@ -13,7 +13,7 @@ function HomePage() {
     const [places,setPlaces] = useState([]);
     const [loading,setLoading] = useState(true);
     const [allPlaces,setAllPlaces] = useState([]);
-    const [tab,setTab] = useState(true);
+    const [tab,setTab] = useState(1);
     
     useEffect(()=>{
         fetch('https://b9a10-server-side-khalid586-theta.vercel.app/places')
@@ -39,15 +39,15 @@ function HomePage() {
 
 
         <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
-            <button className={`${tab ? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Recently Added</button>
-            <button className={`${!tab ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>All Spots</button>
+            <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Recently Added</button>
+            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>All Spots</button>
         </div>  
         {
         
         loading ? <Spinner></Spinner>:
             <div className='grid grid-col-1 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4'>
             {
-                tab && places.map(
+                tab == 1 && places.map(
                     (place,index) =>
                     <Link key={index} to = {`details/${place._id}`} className=''>
                         <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'></img>
@@ -64,7 +64,7 @@ function HomePage() {
                 
             }
             {
-                !tab && allPlaces.map(
+                tab == 2 && allPlaces.map(
                     (place,index) =>
                     <Link key={index} to = {`details/${place._id}`} className=''>
                         <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'></img>

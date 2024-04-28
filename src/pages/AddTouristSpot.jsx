@@ -11,7 +11,7 @@ function AddTouristSpot() {
   
 
     const [places,setPlaces] = useState([]);
-    const [tab,setTab] = useState(true);
+    const [tab,setTab] = useState(1);
 
     useEffect(()=>{
         fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/places/${user.email}`)
@@ -59,14 +59,14 @@ function AddTouristSpot() {
         </Helmet>
 
         <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
-            <button className={`${tab ? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Add Spot</button>
-            <button className={`${!tab ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Recently Added</button>
-        </div>
+            <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Recently Added</button>
+            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>All Spots</button>
+        </div>  
 
         <div className=' m-4 p-4 rounded-lg flex justify-center'>
             
             {
-                tab ?
+                tab === 1 ?
                 <form onSubmit={handleSubmit} className="min-w-80 mx-auto">
                     <div className="mb-5 ">
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place name</label>
