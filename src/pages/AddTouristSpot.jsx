@@ -68,12 +68,17 @@ function AddTouristSpot() {
         </Helmet>
 
         <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
-            <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Recently Added</button>
-            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>All Spots</button>
-        </div>  
+            <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Add spot</button>
+            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>Added spots</button>
+        </div> 
+
+        {   tab === 2 &&
+            <div className='text-center'> 
+                Hello <span className='font-bold'>{ user.displayName? user.displayName : user.email }</span> you have added following places
+            </div> 
+        }
 
         <div className=' m-4 p-4 rounded-lg flex justify-center'>
-            
             {
                 tab === 1 ?
                 <form onSubmit={handleSubmit} className="min-w-80 mx-auto">
