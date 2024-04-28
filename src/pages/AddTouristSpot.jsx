@@ -73,7 +73,7 @@ function AddTouristSpot() {
             <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>Added spots</button>
         </div> 
 
-        {   tab === 2 &&
+        {   tab === 2 && places.length > 0 &&
             <div className='text-center'> 
                 Hello <span className='font-bold'>{ user.displayName? user.displayName : user.email }</span> you have added following places
             </div> 

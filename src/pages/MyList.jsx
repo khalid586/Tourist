@@ -67,13 +67,19 @@ function MyList() {
             <Helmet>
                 <title>Tourist | My list</title>
             </Helmet>
-            <div className='mx-4 gap-4 grid   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-cent '>
-                { loading? <Spinner></Spinner>:places.length ?
-                    places.map((place,index) => <div key = {place._id} className=''> <SingleItem key = {index} handleDelete = {handleDelete} place={place}></SingleItem> </div> )
-                    :
-                    <p className=''>Recently no places have been added!</p>
-                }
-            </div>
+
+            {
+                loading ? <div className='w-full text-center'> <Spinner></Spinner></div>:
+
+                <div className='mx-4 gap-4 grid   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-cent '>
+                    { 
+                        places.length ?
+                            places.map((place,index) => <div key = {place._id} className=''> <SingleItem key = {index} handleDelete = {handleDelete} place={place}></SingleItem> </div> )
+                            :
+                            <p className=''>Recently no places have been added!</p>
+                    }
+                </div>
+            }
         </div>
   )
 }
