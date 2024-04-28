@@ -33,16 +33,18 @@ function Item({place}){
               <div className='m-4'>
                 <h5 className="mb-8 text-2xl lg:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
               </div>
+              
               <div className="flex flex-col p-4 leading-normal">
+                
                    <div className='flex flex-col items-start'>
                         <div className='mb-4'> 
                             <p className="mb-1 text-3xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>
                         </div>
-                        <p className="mb-1 flex items-center gap-2 font-bold  dark:text-gray-400"><IoTimerSharp className='text-emerald-400 text-3xl'></IoTimerSharp> Average travel time: {travelTime} days</p>
-                        <div className='flex gap-2 '>
-                            <FaRegCommentAlt className='h-full text-9xl mt-3 md:text-7xl lg:text-5xl text-red-500'></FaRegCommentAlt>                        
+                        <div className='flex gap-2 p-4 bg-green-100 rounded-3xl my-2'>
                             <p className=" my-2 flex items-start justify-center gap-2 font-bold text-gray-500 dark:text-gray-400"><span className='text-left flex '> {description}</span></p>
                         </div>
+                        <p className="mb-1 flex items-center gap-2 font-bold  dark:text-gray-400"><IoTimerSharp className='text-emerald-400 text-3xl'></IoTimerSharp> Average travel time: {travelTime} days</p>
+
                    </div>
                    <p className='flex items-center gap-4'>
                     <p className='font-bold text-lg flex gap-4 '> <IoPricetagsOutline className='text-2xl text-violet-700'></IoPricetagsOutline></p>
@@ -50,11 +52,13 @@ function Item({place}){
                       seasonality.map(season => <p className='p-2 bg-green-100 text-green-500 font-bold rounded-xl text-xs'> {season}</p>)
                     }
                   </p>
+                  
                 
-                  <p className='md:flex my-2 items-center gap-2 font-semibold text-gray-600'>
-                        <p className='flex gap-2 items-center mb-2'><FaRegUser className='text-orange-500'></FaRegUser>  Posted by: <span className='text-black md:mr-5'>{userName}</span></p>
-                        <span className='text-black flex items-center gap-2'><FaGoogle className='text-green-500'></FaGoogle> {email}</span>
+                  <p className='md:flex my-5 items-center gap-2 font-semibold text-gray-600 text-xs'>
+                        <p className='flex gap-2 mt-2 items-center mb-2'><FaRegUser className='text-orange-500'></FaRegUser>  Posted by: <span className='text-black md:mr-5'>{userName}</span></p>
+                        <span className='text-black ml-16 md:ml-0 flex items-center gap-2'><FaGoogle className='text-green-500'></FaGoogle> {email}</span>
                   </p>
+
                   
               </div>
           </div>
