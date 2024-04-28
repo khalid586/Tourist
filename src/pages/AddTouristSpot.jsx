@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer, toast } from 'react-toastify';
+import SingleItem from '../components/SingleItem';
 
 
 function AddTouristSpot() {
@@ -148,9 +149,11 @@ function AddTouristSpot() {
                 
                 </form> :
 
-                <div >
+                <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
                 { places.length ?
-                    places.map((place,index) => <li className='m-2 flex items-center gap-2' key = {index}><img style={{width:'70px',height:'50px'}} src={place.photoUrl}></img>{place.name}</li>)
+                    places.map((place,index) => 
+                        <SingleItem place={place}></SingleItem>
+                    )
                     :
                     <p>Recently no places have been added!</p>
                 }
