@@ -71,13 +71,17 @@ function MyList() {
             {
                 loading ? <div className='w-full text-center'> <Spinner></Spinner></div>:
 
-                <div className='mx-4 gap-4 grid   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-cent '>
-                    { 
-                        places.length ?
-                            places.map((place,index) => <div key = {place._id} className=''> <SingleItem key = {index} handleDelete = {handleDelete} place={place}></SingleItem> </div> )
-                            :
-                            <p className=''>Recently no places have been added!</p>
-                    }
+                <div className='text-center' >
+                { 
+                    places.length ?
+                    <div className='mx-2 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
+                        {places.map((place,index) => 
+                            <SingleItem place={place}></SingleItem>
+                        )}
+                    </div>
+                    :
+                    <p className = 'mt-4'>You haven't added any place!</p>
+                }
                 </div>
             }
         </div>

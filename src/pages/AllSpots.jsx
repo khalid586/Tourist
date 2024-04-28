@@ -4,6 +4,7 @@ import SingleItem from '../components/SingleItem';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaSortAlphaDown } from 'react-icons/fa';
 import Spinner from '../components/Spinner';
+import { Helmet } from 'react-helmet-async';
 
 function AllSpots() {
 
@@ -30,6 +31,9 @@ function AllSpots() {
 
     return (
         <>
+            <Helmet>
+                <title>Tourist | All spots</title>
+            </Helmet>
 
             {
                 loading ? <div className='w-full text-center'><Spinner></Spinner> </div>:

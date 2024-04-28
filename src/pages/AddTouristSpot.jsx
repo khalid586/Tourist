@@ -149,13 +149,15 @@ function AddTouristSpot() {
                 
                 </form> :
 
-                <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
+                <div className=''>
                 { places.length ?
-                    places.map((place,index) => 
-                        <SingleItem place={place}></SingleItem>
-                    )
+                    <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
+                        {places.map((place,index) => 
+                            <SingleItem place={place}></SingleItem>
+                        )}
+                    </div>
                     :
-                    <p>Recently no places have been added!</p>
+                    <p className>Recently no places have been added!</p>
                 }
                 </div>
             }
