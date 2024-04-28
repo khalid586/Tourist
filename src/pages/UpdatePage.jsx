@@ -66,7 +66,7 @@ function UpdatePage() {
             <Helmet>
                 <title>Tourist | Update</title>
             </Helmet>
-            <div className='flex justify-center'>
+            <div className='flex justify-center m-4'>
                 <form onSubmit={handleSubmit} className="min-w-80 mx-auto">
                     <div className="mb-5 flex gap-2">
                         <div>
@@ -122,7 +122,7 @@ function UpdatePage() {
                             </div>
                         </div>
                     </div>
-                    <div className="mb-5 ">
+                    <div className="my-4">
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Short Description</label>
                         <input defaultValue={description} type="text" name='description' id="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required />
                     </div>
