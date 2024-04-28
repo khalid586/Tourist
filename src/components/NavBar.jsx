@@ -6,6 +6,7 @@ import { PiUserSwitchDuotone } from "react-icons/pi";
 import { AuthContext } from '../providers/AuthProvider';
 import { FcGlobe } from "react-icons/fc";
 import { FaClipboardList } from "react-icons/fa";
+import { FaRegMap } from 'react-icons/fa6';
 
 
 function NavBar() {
@@ -39,6 +40,7 @@ function NavBar() {
               </NavLink>
               <div className='flex gapx-4 py-2 justify-center md:w-2/3 mt-2'>
                   <NavLink to="/" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black px-4 py-2'}><p className='flex gap-1 items-center'><IoHomeOutline className='text-green-500'></IoHomeOutline> Home</p></NavLink>
+                  <NavLink to="/all_spots" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black px-4 py-2'}><p className='flex gap-1 items-center'><FaRegMap className='text-green-500'></FaRegMap> All Spots</p></NavLink>
                   <NavLink to="/add_spot" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 ':'text-black px-4 py-2'}><p className='flex gap-1 items-center'><FcGlobe className='text-green-500'></FcGlobe> Add Spot</p></NavLink>
                   {
                       user && <NavLink to="/mylist" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50':'text-black px-4 py-2'}>     <p className='items-center flex gap-1'><FaClipboardList className='text-green-500'></FaClipboardList>My List</p></NavLink>

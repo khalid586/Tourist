@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { MdOutlineBedroomParent, MdOutlineDelete } from "react-icons/md";
 import { FaLandmark } from "react-icons/fa6";
 import { GrUpdate } from 'react-icons/gr';
+import { FaMapMarkedAlt, FaRegCommentAlt, FaRegMoneyBillAlt } from 'react-icons/fa';
 
 
-function SingleItem({place , handleDelete}) {
+function SingleItem({place , handleDelete , applySort}) {
     let {                
         _id,
         name,
@@ -21,7 +22,7 @@ function SingleItem({place , handleDelete}) {
         travelTime,
     } = place; 
 
-    description =description.split('').slice(0, 80).join('');
+    description =description.split('').slice(0, 60).join('');
   return (
       
 
@@ -29,9 +30,12 @@ function SingleItem({place , handleDelete}) {
     <img className='w-full rounded-t-lg' style={{ height:'290px'}} src = {photoUrl} alt="" />
     <div class="p-4">
         
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex  gap-2 items-center"><FaMapMarkedAlt className='text-xl text-red-600'></FaMapMarkedAlt> {name}</h5>
         
-        <p class="my-6 font-normal text-gray-700 dark:text-gray-400">{description}</p>
+        <p class="my-6 font-normal text-gray-700 dark:text-gray-400 flex  gap-2 items-center"><FaRegCommentAlt  className='text-4xl -mt-3 text-violet-700 font-extrabold'></FaRegCommentAlt> {description}</p>
+        {
+            applySort && <p className='font-semibold flex items-center gap-2'><FaRegMoneyBillAlt className='text-2xl text-green-500'></FaRegMoneyBillAlt> Average Cost: {avgCost}</p>
+        }
         <div className='flex gap-2 mt-10 mb-4'>
             {
                 handleDelete ?

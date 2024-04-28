@@ -11,6 +11,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import PlaceDetails from "../pages/PlaceDetails";
 import ErrorPage from "../pages/ErrorPage";
 import UpdatePage from "../pages/UpdatePage";
+import AllSpots from "../pages/AllSpots";
   
  export const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ import UpdatePage from "../pages/UpdatePage";
         {
           path:'/',
           element:<HomePage></HomePage>,
+        },
+        {
+           path:"/all_spots",
+           element:<AllSpots></AllSpots>,
         },
         {
           path:'/add_spot',

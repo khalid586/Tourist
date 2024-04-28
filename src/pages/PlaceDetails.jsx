@@ -44,7 +44,7 @@ function Item({place}){
                             <p className=" my-2 flex items-start justify-center gap-2 font-bold text-gray-500 dark:text-gray-400"><span className='text-left flex '> {description}</span></p>
                         </div>
                         <p className="mb-1 flex items-center gap-2 font-bold  dark:text-gray-400"><IoTimerSharp className='text-emerald-400 text-3xl'></IoTimerSharp> Average travel time: {travelTime} days</p>
-
+                        <p></p>
                    </div>
                    <p className='flex items-center gap-4'>
                     <p className='font-bold text-lg flex gap-4 '> <IoPricetagsOutline className='text-2xl text-violet-700'></IoPricetagsOutline></p>
