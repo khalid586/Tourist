@@ -38,7 +38,7 @@ function HomePage() {
         </Helmet>   
 
 
-        <div className='flex justify-center m-4 p-2 gap-2 font-semibold'>
+        <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
             <button className={`${tab ? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>Recently Added</button>
             <button className={`${!tab ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(!tab)}>All Spots</button>
         </div>  

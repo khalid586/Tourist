@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Navigate, useLoaderData, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthContext } from '../providers/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 function UpdatePage() {
     const data = useLoaderData();
@@ -44,6 +45,11 @@ function UpdatePage() {
     }
 
     return (
+     <>
+        <Helmet>
+            <title>Tourist | Update</title>
+        </Helmet>
+
         <div className='flex justify-center'>
                 <form onSubmit={handleSubmit} className="w-full m-2 md:w-1/3">
                     <div className="mb-5 ">
@@ -65,6 +71,7 @@ function UpdatePage() {
                 </form>
                 <ToastContainer></ToastContainer>
         </div>
+     </>
     )
 }
 
