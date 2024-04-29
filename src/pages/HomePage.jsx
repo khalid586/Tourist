@@ -21,6 +21,11 @@ function HomePage() {
 
 
     function sortbyCountry(countryName,index){
+        if(countryName == 'all'){
+            const sorted = [...allPlaces]
+            setSortedPlaces(sorted)
+            return;
+        }
         const sorted = allPlaces.filter(item => item.country == countryName)
         setSortedPlaces(sorted);
         setCurrTab(index);
@@ -85,12 +90,13 @@ function HomePage() {
             {
                 tab == 2 && 
                 <div className='w-[97vw] py-2'>
-
-                    <div className='m-4 mb-6 flex gap-8 justify-center text-xs'>
-                        {
-                            countries.map((country,index) => <button onClick={()=>sortbyCountry(country.name,index)} className={`px-4 py-2 rounded-full text-white ${currTab === index ? 'bg-blue-700':'bg-gray-300'}`}>{country.name}</button>)
-                        }
-
+                    <div className='m-4 mb-6  text-center'>
+                        <select className='font-bold' onChange={(e) => sortbyCountry(e.target.value, e.target.selectedIndex)}>
+                            <option value={"all"}>All countries</option>
+                            {countries.map((country, index) => (
+                            <option key={index} value={country.name}>{country.name}</option>
+                            ))}
+                        </select>
                     </div>
                     <div className=' gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         {
