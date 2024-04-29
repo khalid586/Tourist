@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import SingleItem from '../components/SingleItem';
 
 
 function AddTouristSpot() {
+    const navigate = useNavigate();
     const {user} = useContext(AuthContext);
     console.log(user)
   
@@ -54,7 +55,7 @@ function AddTouristSpot() {
             if(data.acknowledged) toast.success('Spot added successfully')
             setPlaces([...places,place]);
             setTimeout(()=>{
-                setTab(2);
+                navigate('/')
             },1500)
         })
     

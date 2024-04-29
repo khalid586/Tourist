@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { CiShoppingTag } from 'react-icons/ci';
 import { HiCurrencyDollar } from 'react-icons/hi';
@@ -29,11 +29,19 @@ function Item({place}){
         userName,
         visitorsPerYear,
         travelTime,} = place; 
+
+        const[ valid,setValid] = useState(true);
   
     return(
       <div className='text-center flex flex-col items-center'>
           <div className=' w-4/5 my-4'> 
-            <img class="h-[100px] md:h-[300px] lg:h-[400px] w-full" src={photoUrl} alt="image description"/>
+            <img class="h-[100px] md:h-[300px] lg:h-[400px] min-w-[60vw] w-full" src={photoUrl} alt="image description"
+                        onError={(e) => {
+                          setValid(false);
+                          e.target.src = 'https://i.ibb.co/MDBxfMK/pexels-photo-1450360.jpg'; 
+                          e.target.alt = 'Fallback Image'; 
+                      }}
+            />
           </div>  
           
           <div className="lg:w-4/5 flex flex-col items-center justify-between rounded-lg md:flex-row">
@@ -44,11 +52,15 @@ function Item({place}){
               <div className="flex flex-col p-4 leading-normal">
                 
                    <div className='flex flex-col items-start'>
-                        <div className='mb-4'> 
-                            <p className="my-2 text-sm flex items-center gap-1 font-semibold text-gray-800"> <TiLocationOutline className='text-orange-400 text-2xl'></TiLocationOutline>  {location}</p>
-                            <p className="mb-1 ml-1 text-2xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>
+                        <div className='flex justify-between border w-full '> 
+                          <div className='mb-4'> 
+                              <p className="my-2 text-sm flex items-center gap-1 font-semibold text-gray-800"> <TiLocationOutline className='text-orange-400 text-2xl'></TiLocationOutline>  {location}</p>
+                              <p className="mb-1 ml-1 text-2xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>
+                          </div>
+                          {!valid && <p className=' mt-4 mr-8 text-red-500'>  No valid image url provided</p>}
+
                         </div>
-                        <div className='flex gap-2 p-4 bg-green-100 rounded-3xl my-2'>
+                        <div className='flex min-w-[80vw] md:min-w-[50vw] gap-2 p-4 bg-green-100 rounded-3xl my-2 mb-4'>
                             <p className=" my-2 flex items-start justify-center gap-2 font-bold text-gray-500 dark:text-gray-400"><span className='text-left flex '> {description}</span></p>
                         </div>
                         <p className="mb-1 flex items-center gap-2 font-bold text-gray-600"><IoCalendar className='text-blue-500 text-2xl'></IoCalendar> Average stay: <span className='text-black'>{travelTime} days</span></p>
@@ -57,9 +69,12 @@ function Item({place}){
                        <p className='font-semibold my-1 mb-3 text-gray-600 flex items-center gap-2'><SlPeople className='text-blue-600 text-xl'> </SlPeople> Visitors per year : <span className='font-bold text-black flex items-center gap-0.5 '>{visitorsPerYear}</span></p>
                    </div>
                    <p className='flex items-center gap-4'>
-                      <p className='font-bold text-lg flex gap-4 '> <IoPricetagsOutline className='text-2xl text-violet-700'></IoPricetagsOutline></p>
+                      <p className='font-bold text-lg flex gap-4'> <IoPricetagsOutline className='text-2xl text-violet-700'></IoPricetagsOutline></p>
                       {
-                        seasonality.map(season => <p className='p-2 bg-green-100 text-green-500 font-bold rounded-xl text-xs'> {season}</p>)
+                        seasonality.length ?seasonality.map(season => <p className='p-2 bg-green-100 text-green-500 font-bold rounded-xl text-xs'> {season}</p>)
+                        :
+                        <p className='-m-3 text-sm text-gray-400 font-semibold'>No season information available</p>
+        
                       }
                     </p>
                   

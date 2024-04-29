@@ -76,7 +76,10 @@ function HomePage() {
                     (place,index) =>
                     <button onClick={() => setLoading(!loading)}>
                         <Link key={index} to = {`details/${place._id}`} className=''>
-                            <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'></img>
+                            <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'  onError={(e) => {
+                                e.target.src = 'https://i.ibb.co/MDBxfMK/pexels-photo-1450360.jpg'; 
+                                e.target.alt = 'Fallback Image'; 
+                            }}></img>
                             <div className='mx-2 my-1'>
                                 <div className='flex items-center justify-between'>                            
                                     <p className='font-semibold flex gap-1 items-center'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>

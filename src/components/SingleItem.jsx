@@ -27,7 +27,12 @@ function SingleItem({place , handleDelete , applySort}) {
   return (
         
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <img className='w-full rounded-t-lg' style={{ height:'290px'}} src = {photoUrl} alt="" />
+            <img className='w-full rounded-t-lg' style={{ height:'290px'}} src = {photoUrl} alt="" 
+            onError={(e) => {
+                e.target.src = 'https://i.ibb.co/MDBxfMK/pexels-photo-1450360.jpg'; 
+                e.target.alt = 'Fallback Image'; 
+            }}
+            />
             <div class="p-4">
                 
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex  gap-2 items-center"><FaMapPin className='text-xl text-lime-500'></FaMapPin> {name}</h5>
