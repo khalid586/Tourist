@@ -21,6 +21,8 @@ function AddTouristSpot() {
         .then(data => setPlaces(data))
     },[])
 
+    const [charLeft,setCharLeft] = useState(0);
+
     function handleSubmit(e){
         e.preventDefault();
         const form = e.target;
@@ -34,6 +36,13 @@ function AddTouristSpot() {
         const description = form.description.value;
         const email = user.email;
         const userName = user.displayName;
+
+        setCharLeft(0);
+
+        if(70 - description.length > 0){
+            setCharLeft(70 - description.length);
+            return;
+        }
     
         // Extract the values of selected checkboxes and store them in an array
         const seasonality = Array.from(form.querySelectorAll('input[name="seasonality"]:checked')).map(input => input.value);
@@ -124,6 +133,7 @@ function AddTouristSpot() {
                     <div className="mb-5 ">
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Short Description</label>
                         <input type="text" defaultValue={desc} name = 'description' id="description" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required />
+                        {charLeft > 0 && <p className='text-red-500 text-xs'> Description should be more than 70 characters. {charLeft} characters left</p>}
                     </div>
 
                     <div className="mb-5">

@@ -52,7 +52,7 @@ function Item({place}){
               <div className="flex flex-col p-4 leading-normal">
                 
                    <div className='flex flex-col items-start'>
-                        <div className='flex justify-between border w-full '> 
+                        <div className='flex justify-between w-full '> 
                           <div className='mb-4'> 
                               <p className="my-2 text-sm flex items-center gap-1 font-semibold text-gray-800"> <TiLocationOutline className='text-orange-400 text-2xl'></TiLocationOutline>  {location}</p>
                               <p className="mb-1 ml-1 text-2xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>

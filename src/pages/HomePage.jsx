@@ -55,6 +55,7 @@ function HomePage() {
     },[])
 
     const active = 'bg-red-600 text-white' , nonActive = 'bg-gray-100 text-black';
+    const [validities, setValidities] = useState([]); 
 
     return(
         <div className=''>
@@ -74,18 +75,24 @@ function HomePage() {
             {
                 tab == 1 && places.map(
                     (place,index) =>
-                    <button onClick={() => setLoading(!loading)}>
+                    <button key={index} onClick={() => setLoading(!loading)}>
                         <Link key={index} to = {`details/${place._id}`} className=''>
-                            <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'  onError={(e) => {
+                            <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img' 
+                             onError={(e) => {
                                 e.target.src = 'https://i.ibb.co/MDBxfMK/pexels-photo-1450360.jpg'; 
                                 e.target.alt = 'Fallback Image'; 
-                            }}></img>
+                                setValid(false);
+                            }}>
+                                
+                            </img>
                             <div className='mx-2 my-1'>
                                 <div className='flex items-center justify-between'>                            
                                     <p className='font-semibold flex gap-1 items-center'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>
                                     <p className='flex gap-1 items-center font-semibold overflow-hidden overflow-ellipsis'><MdCloudUpload className='text-blue-500 text-bold'></MdCloudUpload><span className='text-xs'>{place.userName?place.userName:place.email}</span></p>
                                 </div>
-                                <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
+                                <div className='flex items-center justify-between'>
+                                    <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
+                                </div>
                             </div>
                         </Link>
                     </button>
