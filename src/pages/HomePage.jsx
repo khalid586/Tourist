@@ -44,7 +44,7 @@ function HomePage() {
         .then(res => res.json())
         .then(data => {
             setAllPlaces(data);
-            setPlaces(data.slice(0,6)); 
+            setPlaces(data.slice(0,8)); 
             setSortedPlaces(data);
             setLoading(false);
         })
