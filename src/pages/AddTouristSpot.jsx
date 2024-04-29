@@ -92,7 +92,7 @@ function AddTouristSpot() {
         <div className=' m-4 p-4 rounded-lg flex justify-center'>
             {
                 tab === 1 ?
-                <form onSubmit={handleSubmit} className="min-w-80 mx-auto">
+                <form onSubmit={handleSubmit} className="min-w-80 mx-auto ">
                     <div className="mb-5 flex gap-2">
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place name</label>

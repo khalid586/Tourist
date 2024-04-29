@@ -57,7 +57,7 @@ function Item({place}){
                               <p className="my-2 text-sm flex items-center gap-1 font-semibold text-gray-800"> <TiLocationOutline className='text-orange-400 text-2xl'></TiLocationOutline>  {location}</p>
                               <p className="mb-1 ml-1 text-2xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>
                           </div>
-                          {!valid && <p className=' mt-4 mr-8 text-red-500'>  No valid image url provided</p>}
+                          {!valid && <p className=' mt-4 mr-8 text-red-500 font-semibold text-xs'>This is a default image. User provided invalid image url </p>}
 
                         </div>
                         <div className='flex min-w-[80vw] md:min-w-[50vw] gap-2 p-4 bg-green-100 rounded-3xl my-2 mb-4'>
