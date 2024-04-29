@@ -22,7 +22,7 @@ function SingleItem({place , handleDelete , applySort}) {
         travelTime,
     } = place; 
 
-    description =description.split('').slice(0, 60).join('');
+    description =description.split('').slice(0, 60).join(''); 
   return (
       
 

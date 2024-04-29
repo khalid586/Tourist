@@ -13,7 +13,14 @@ function HomePage() {
     const [places,setPlaces] = useState([]);
     const [loading,setLoading] = useState(true);
     const [allPlaces,setAllPlaces] = useState([]);
+    const [countries,setCountries] = useState([]);
     const [tab,setTab] = useState(1);
+
+    useEffect(()=>{
+        fetch('https://b9a10-server-side-khalid586-theta.vercel.app/countries')
+        .then(res => res.json())
+        .then(data => {console.log(data);setCountries(data)})
+    },[])
     
     useEffect(()=>{
         fetch('https://b9a10-server-side-khalid586-theta.vercel.app/places')
@@ -40,7 +47,7 @@ function HomePage() {
 
         <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
             <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Recently Added</button>
-            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>All Spots</button>
+            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>Countries</button>
         </div>  
         {
         
@@ -64,19 +71,13 @@ function HomePage() {
                 
             }
             {
-                tab == 2 && allPlaces.map(
-                    (place,index) =>
-                    <Link key={index} to = {`details/${place._id}`} className=''>
-                        <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'></img>
-                        <div className='mx-2 my-1'>
-                            <div className='flex items-center justify-between'>                            
-                                <p className='font-semibold flex gap-1 items-center'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>
-                                <p className='flex gap-1 items-center font-semibold overflow-hidden overflow-ellipsis'><MdCloudUpload className='text-blue-500 text-bold'></MdCloudUpload><span className='text-xs'>{place.userName?place.userName:place.email}</span></p>
-                            </div>
-                            <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
-                        </div>
-                    </Link>
-                )
+                tab == 2 && 
+                <div>
+                    {
+                        countries.map(country => <li>{country.name}</li>)
+                    }
+
+                </div>
             }
             </div>
         }   

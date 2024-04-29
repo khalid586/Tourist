@@ -76,7 +76,7 @@ function MyList() {
                     places.length ?
                     <div className='mx-2 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                         {places.map((place,index) => 
-                            <SingleItem place={place}></SingleItem>
+                            <SingleItem place={place} handleDelete={handleDelete}></SingleItem>
                         )}
                     </div>
                     :
