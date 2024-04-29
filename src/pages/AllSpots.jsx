@@ -39,7 +39,7 @@ function AllSpots() {
                 loading ? <div className='w-full text-center'><Spinner></Spinner> </div>:
                 <div>
                     <div className='w-full flex justify-center text-white font-semibold my-2'>
-                        <button className='rounded-full px-4 py-2 bg-green-500 flex gap-2 items-center' onClick={handleClick}><FaSortAlphaDown className=''></FaSortAlphaDown> Sort</button>
+                        <button className='rounded-full px-4 py-2 bg-green-500 flex gap-2 items-center' onClick={handleClick}><FaSortAlphaDown className=''></FaSortAlphaDown> Sort by cost</button>
                     </div>
 
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-4 my-4 gap-2'>

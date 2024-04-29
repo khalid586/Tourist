@@ -5,7 +5,8 @@ import { GrMapLocation } from "react-icons/gr";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { MdCloudUpload } from "react-icons/md";
 import Spinner from '../components/Spinner';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import SingleItem from '../components/SingleItem';
 
 
 
@@ -15,11 +16,21 @@ function HomePage() {
     const [allPlaces,setAllPlaces] = useState([]);
     const [countries,setCountries] = useState([]);
     const [tab,setTab] = useState(1);
+    const [sortedPlaces,setSortedPlaces] = useState([]);
+    const [currTab,setCurrTab] = useState(-1);
+
+
+    function sortbyCountry(countryName,index){
+        const sorted = allPlaces.filter(item => item.country == countryName)
+        setSortedPlaces(sorted);
+        setCurrTab(index);
+        toast(`Showing spots from ${countryName}`)
+    }
 
     useEffect(()=>{
         fetch('https://b9a10-server-side-khalid586-theta.vercel.app/countries')
         .then(res => res.json())
-        .then(data => {console.log(data);setCountries(data)})
+        .then(data => {console.log(data); setCountries(data)})
     },[])
     
     useEffect(()=>{
@@ -28,6 +39,7 @@ function HomePage() {
         .then(data => {
             setAllPlaces(data);
             setPlaces(data.slice(0,6)); 
+            setSortedPlaces(data);
             setLoading(false);
         })
         .catch(error =>{
@@ -39,7 +51,7 @@ function HomePage() {
     const active = 'bg-red-600 text-white' , nonActive = 'bg-gray-100 text-black';
 
     return(
-        <div>
+        <div className=''>
         <Helmet>
             <title>Tourist | Home</title>
         </Helmet>   
@@ -72,15 +84,24 @@ function HomePage() {
             }
             {
                 tab == 2 && 
-                <div>
-                    {
-                        countries.map(country => <li>{country.name}</li>)
-                    }
+                <div className='w-[97vw] py-2'>
 
+                    <div className='m-4 mb-6 flex gap-8 justify-center text-xs'>
+                        {
+                            countries.map((country,index) => <button onClick={()=>sortbyCountry(country.name,index)} className={`px-4 py-2 rounded-full text-white ${currTab === index ? 'bg-blue-700':'bg-gray-300'}`}>{country.name}</button>)
+                        }
+
+                    </div>
+                    <div className=' gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                        {
+                            sortedPlaces.map(place => <SingleItem place={place}></SingleItem>)
+                        }
+                    </div>
                 </div>
             }
             </div>
         }   
+        <ToastContainer></ToastContainer>
         </div>
     )
 }

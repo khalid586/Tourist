@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { MdOutlineBedroomParent, MdOutlineDelete } from "react-icons/md";
 import { FaLandmark } from "react-icons/fa6";
 import { GrUpdate } from 'react-icons/gr';
-import { FaMapMarkedAlt, FaRegCommentAlt, FaRegMoneyBillAlt } from 'react-icons/fa';
+import { FaMapMarkedAlt, FaMapMarkerAlt, FaRegCommentAlt, FaRegMoneyBillAlt } from 'react-icons/fa';
 
 
 function SingleItem({place , handleDelete , applySort}) {
@@ -31,7 +31,7 @@ function SingleItem({place , handleDelete , applySort}) {
     <div class="p-4">
         
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex  gap-2 items-center"><FaMapMarkedAlt className='text-xl text-red-600'></FaMapMarkedAlt> {name}</h5>
-        
+        <p className='flex items-center gap-2'><FaMapMarkerAlt className='text-green-500'></FaMapMarkerAlt> {country}</p>
         <p class="my-6 font-normal text-gray-700 dark:text-gray-400 flex  gap-2 items-center"><FaRegCommentAlt  className='text-4xl -mt-3 text-violet-700 font-extrabold'></FaRegCommentAlt> {description}</p>
         {
             applySort && <p className='font-semibold flex items-center gap-2'><FaRegMoneyBillAlt className='text-2xl text-green-500'></FaRegMoneyBillAlt> Average Cost: {avgCost}</p>
