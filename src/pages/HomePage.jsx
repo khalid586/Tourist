@@ -17,18 +17,19 @@ function HomePage() {
     const [countries,setCountries] = useState([]);
     const [tab,setTab] = useState(1);
     const [sortedPlaces,setSortedPlaces] = useState([]);
-    const [currTab,setCurrTab] = useState(-1);
+    const [selectedCountry,setSelectedCountry] = useState('');
 
 
     function sortbyCountry(countryName,index){
         if(countryName == 'all'){
             const sorted = [...allPlaces]
             setSortedPlaces(sorted)
+            setSelectedCountry('All countries');
             return;
         }
         const sorted = allPlaces.filter(item => item.country == countryName)
         setSortedPlaces(sorted);
-        setCurrTab(index);
+        setSelectedCountry(countryName);
         toast(`Showing spots from ${countryName}`)
     }
 
@@ -73,16 +74,18 @@ function HomePage() {
             {
                 tab == 1 && places.map(
                     (place,index) =>
-                    <Link key={index} to = {`details/${place._id}`} className=''>
-                        <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'></img>
-                        <div className='mx-2 my-1'>
-                            <div className='flex items-center justify-between'>                            
-                                <p className='font-semibold flex gap-1 items-center'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>
-                                <p className='flex gap-1 items-center font-semibold overflow-hidden overflow-ellipsis'><MdCloudUpload className='text-blue-500 text-bold'></MdCloudUpload><span className='text-xs'>{place.userName?place.userName:place.email}</span></p>
+                    <button onClick={() => setLoading(!loading)}>
+                        <Link key={index} to = {`details/${place._id}`} className=''>
+                            <img className='rounded-xl w-full' style={{ height: '300px' }} src={place.photoUrl} alt='place.img'></img>
+                            <div className='mx-2 my-1'>
+                                <div className='flex items-center justify-between'>                            
+                                    <p className='font-semibold flex gap-1 items-center'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>
+                                    <p className='flex gap-1 items-center font-semibold overflow-hidden overflow-ellipsis'><MdCloudUpload className='text-blue-500 text-bold'></MdCloudUpload><span className='text-xs'>{place.userName?place.userName:place.email}</span></p>
+                                </div>
+                                <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
                             </div>
-                            <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
-                        </div>
-                    </Link>
+                        </Link>
+                    </button>
                 )
 
                 
@@ -91,7 +94,7 @@ function HomePage() {
                 tab == 2 && 
                 <div className='w-[97vw] py-2'>
                     <div className='m-4 mb-6  text-center'>
-                        <select className='font-bold' onChange={(e) => sortbyCountry(e.target.value, e.target.selectedIndex)}>
+                        <select value={selectedCountry} className='font-bold' onChange={(e) => sortbyCountry(e.target.value, e.target.selectedIndex)}>
                             <option value={"all"}>All countries</option>
                             {countries.map((country, index) => (
                             <option key={index} value={country.name}>{country.name}</option>

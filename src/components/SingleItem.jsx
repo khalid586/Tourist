@@ -5,6 +5,7 @@ import { MdOutlineBedroomParent, MdOutlineDelete } from "react-icons/md";
 import { FaLandmark } from "react-icons/fa6";
 import { GrUpdate } from 'react-icons/gr';
 import { FaMapMarkedAlt, FaMapMarkerAlt, FaRegCommentAlt, FaRegMoneyBillAlt } from 'react-icons/fa';
+import { TbCoinTaka } from 'react-icons/tb';
 
 
 function SingleItem({place , handleDelete , applySort}) {
@@ -34,7 +35,7 @@ function SingleItem({place , handleDelete , applySort}) {
         <p className='flex items-center gap-2'><FaMapMarkerAlt className='text-green-500'></FaMapMarkerAlt> {country}</p>
         <p class="my-6 font-normal text-gray-700 dark:text-gray-400 flex  gap-2 items-center"><FaRegCommentAlt  className='text-4xl -mt-3 text-violet-700 font-extrabold'></FaRegCommentAlt> {description}</p>
         {
-            applySort && <p className='font-semibold flex items-center gap-2'><FaRegMoneyBillAlt className='text-2xl text-green-500'></FaRegMoneyBillAlt> Average Cost: {avgCost}</p>
+            applySort && <p className='font-semibold flex items-center gap-1'><FaRegMoneyBillAlt className='text-2xl text-red-600'></FaRegMoneyBillAlt> Average Cost: {avgCost} <TbCoinTaka className='text-red-400'></TbCoinTaka></p>
         }
         <div className='flex gap-2 mt-10 mb-4'>
             {
