@@ -39,6 +39,10 @@ function AddTouristSpot() {
 
         setCharLeft(0);
 
+        if(error){
+            toast.error('Invalid image url provided')
+        }
+
         if(70 - description.length > 0){
             setCharLeft(70 - description.length);
             return;
@@ -69,6 +73,16 @@ function AddTouristSpot() {
         })
     
     }
+    const [url,setUrl] = useState('https://i.ibb.co/r0d6F7Y/pexels-photo-3881104.jpg');
+    const [error,setError] = useState(false);
+
+
+    function checkUrl(e){
+        const currUrl = e.target.value;
+        setUrl(currUrl); 
+        setError(false)
+
+    }
 
     const active = 'bg-green-400 text-white' , nonActive = 'bg-gray-100 text-black';
     const desc = "Carved by the mighty Colorado River over millions of years, its vast expanse of colorful cliffs and deep gorges stretches for over 275 miles, showcasing nature's raw power and geological beauty. Visitors are treated to breathtaking vistas at every turn, with layers of rock revealing a fascinating chronicle of Earth's history."
@@ -93,6 +107,8 @@ function AddTouristSpot() {
             {
                 tab === 1 ?
                 <form onSubmit={handleSubmit} className="min-w-80 mx-auto ">
+
+                    <img className='hidden' src={url} alt="alternate image" onError={() => setError(true)} />
                     <div className="mb-5 flex gap-2">
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place name</label>
@@ -101,7 +117,10 @@ function AddTouristSpot() {
                         
                         <div className="">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo Url</label>
-                            <input type="text" name = 'photoUrl' id="photoUrl" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="https://picture.png"  required />
+                            <input onChange={checkUrl} type="text" name = 'photoUrl' id="photoUrl" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="https://picture.png"  required />
+                            <div className='h-5'>                            
+                                { error && <p className='text-xs text-red-500'>Invalid url</p>}
+                            </div>
                         </div>
                     </div>
                     <div className='flex gap-2'>

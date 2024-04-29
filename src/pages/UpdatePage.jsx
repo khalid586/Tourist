@@ -12,6 +12,9 @@ function UpdatePage() {
 
     const { _id, name, country, photoUrl,location, email, userName, avgCost, seasonality, description,travelTime,visitorsPerYear } = data;
 
+    const [url,setUrl] = useState('https://i.ibb.co/r0d6F7Y/pexels-photo-3881104.jpg');
+    const [error,setError] = useState(false);
+
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -32,6 +35,11 @@ function UpdatePage() {
 
         if(70 - description.length > 0){
             setCharLeft(70 - description.length);
+            return;
+        }
+
+        if(error){
+            toast.error('Invalid image url provided')
             return;
         }
 
@@ -71,6 +79,16 @@ function UpdatePage() {
             .catch(error => toast(error));
     }
 
+
+
+
+    function checkUrl(e){
+        const currUrl = e.target.value;
+        setUrl(currUrl); 
+        setError(false)
+
+    }
+
     return (
         <>
             <Helmet>
@@ -78,6 +96,8 @@ function UpdatePage() {
             </Helmet>
             <div className='flex justify-center m-4'>
                 <form onSubmit={handleSubmit} className="min-w-80 mx-auto">
+                    <img className='hidden' src={url} alt="alternate image" onError={() => setError(true)} />
+
                     <div className="mb-5 flex gap-2">
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Place name</label>
@@ -85,7 +105,10 @@ function UpdatePage() {
                         </div>
                         <div className="">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo Url</label>
-                            <input defaultValue={photoUrl} type="text" name='photoUrl' id="photoUrl" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="https://picture.png" required />
+                            <input onChange={checkUrl} defaultValue={photoUrl} type="text" name='photoUrl' id="photoUrl" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="https://picture.png" required />
+                            <div className='h-5'>                            
+                                { error && <p className='text-xs text-red-500'>Invalid url</p>}
+                            </div>
                         </div>
                     </div>
                     <div className='flex gap-2'>

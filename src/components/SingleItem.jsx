@@ -43,8 +43,8 @@ function SingleItem({place , handleDelete , applySort}) {
                 }
                 <div className='flex gap-2 mt-10 mb-4'>
                     {
-                        <div className='flex gap-2'>
-                            <Link to = {`/details/${_id}`} class="inline-flex items-center  px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <div className='flex gap-2 '>
+                            <Link to = {`/details/${_id}`} class="inline-flex items-center  px-4 py-2 text-sm font-bold text-center text-blue-700  rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Details
                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -53,10 +53,12 @@ function SingleItem({place , handleDelete , applySort}) {
                             {
                                 handleDelete &&
                                 <div className='flex gap-2 justify-around  w-full'>
-                                    <Link to ={ `/update/${place._id}`} class="inline-flex gap-2 items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-400 rounded-full hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    <GrUpdate className='text-base'></GrUpdate>  Update 
+
+                                    <Link to ={ `/update/${place._id}`} class="inline-flex gap-2 items-center px-4 py-2 text-sm font-bold text-center text-green-500  rounded-full hover:bg-green-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <GrUpdate className='text-base'></GrUpdate>  Update 
                                     </Link>
-                                    <button onClick={() => handleDelete(place._id)} class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-full hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+
+                                    <button onClick={() => handleDelete(place._id)} class="inline-flex items-center px-4 py-2 text-sm font-bold text-center text-red-500 rounded-full hover:bg-red-100 f  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         <MdOutlineDelete className='text-2xl'></MdOutlineDelete> Delete
                                     </button>
                                 </div>
