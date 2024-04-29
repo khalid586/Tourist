@@ -16,6 +16,7 @@ function UpdatePage() {
 
         const form = e.target;
         const name = form.name.value;
+        const location = form.location.value;
         const country = form.country.value;
         const photoUrl = form.photoUrl.value;
         const avgCost = form.avgCost.value;
@@ -29,6 +30,7 @@ function UpdatePage() {
         const updatedInfo = {
             name,
             country,
+            location,
             photoUrl,
             avgCost,
             seasonality,
@@ -81,7 +83,7 @@ function UpdatePage() {
                     <div className='flex gap-2'>
                         <div className="mb-5">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
-                            <input defaultValue={location} type="text" id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cox's Bazar" required />
+                            <input defaultValue={location} name = "location" type="text" id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cox's Bazar" required />
                         </div>
                         <div className="">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
