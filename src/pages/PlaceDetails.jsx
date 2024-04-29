@@ -9,9 +9,10 @@ import { FaRegUser } from "react-icons/fa";
 import { GrMapLocation } from 'react-icons/gr';
 import { IoPricetagsOutline, IoTimerSharp } from 'react-icons/io5';
 import { TiLocationOutline } from 'react-icons/ti';
-import { FaMoneyBill1Wave } from 'react-icons/fa6';
+import { FaMoneyBill1Wave, FaUserCheck } from 'react-icons/fa6';
 import { TbCoinTaka } from 'react-icons/tb';
-import { SlPeople } from 'react-icons/sl';
+import { SlPeople, SlUserFollowing } from 'react-icons/sl';
+import { IoIosMail } from 'react-icons/io';
 
 
 
@@ -63,8 +64,8 @@ function Item({place}){
                   
                 
                   <p className='md:flex my-5 items-center gap-2 font-semibold text-gray-600 text-xs'>
-                        <p className='flex gap-2 mt-2 items-center mb-2'><FaRegUser className='text-orange-500'></FaRegUser>  Posted by: <span className='text-black md:mr-5'>{userName}</span></p>
-                        <span className='text-black ml-16 md:ml-0 flex items-center gap-2'><FaGoogle className='text-green-500'></FaGoogle> {email}</span>
+                        <p className='flex gap-1 mt-2 items-center mb-2'><FaUserCheck className='text-emerald-500 font-extrabold text-xl'></FaUserCheck>  Posted by: <span className='text-black md:mr-5'>{userName}</span></p>
+                        <span className='text-black ml-16 md:ml-0 flex items-center gap-1'><IoIosMail className='text-orange-500 text-2xl'></IoIosMail> {email}</span>
                   </p>
 
                   
