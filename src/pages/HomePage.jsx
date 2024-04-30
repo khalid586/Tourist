@@ -82,11 +82,11 @@ function HomePage() {
         loading ? <Spinner></Spinner>:
             <div className='mx-2'> 
             {
-                tab == 1 && <div className='grid grid-col-1 md:grid-cols-3 lg:grid-cols-4 gap-4 m-2'> 
+                tab == 1 && <div className='grid grid-col-1 md:grid-cols-3 lg:grid-cols-4 gap-4'> 
                 
                 {places.map(
                     (place,index) =>
-                        <button key={index}  className=' ' onClick={() => setLoading(!loading)}>
+                        <button key={index}  className='' onClick={() => setLoading(!loading)}>
                             <Link key={index} to = {`details/${place._id}`}>
                                 <img className='rounded-xl border-b-4 duration-500 hover:border-red-500' style={{ height: '300px' , width:'400px'}} src={place.photoUrl} alt='place.img' 
                                 onError={(e) => {
@@ -109,10 +109,7 @@ function HomePage() {
                         </button>
                     
                 )}
-                <p className='w-full min-w-[95vw] my-4 mb-8'>
-                    <p className='my-8  mb-12 text-3xl font-bold text-center'>Thanks to the contributers</p>
-                    <MarqueeSlider places = {places}></MarqueeSlider>
-                </p>
+
             </div>
             }
             {
@@ -136,7 +133,13 @@ function HomePage() {
             </div>
         }   
              <ToastContainer></ToastContainer>
-
+             {
+                !loading && 
+                <p className='w-full min-w-[95vw] my-4 mb-8'>
+                        <p className='my-8  mb-12 text-3xl font-bold text-center'>Thanks to the contributers</p>
+                        <MarqueeSlider places = {places}></MarqueeSlider>
+                </p>
+             }
         </div>
     )
 }
