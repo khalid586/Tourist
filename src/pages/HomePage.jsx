@@ -96,7 +96,7 @@ function HomePage() {
                                     </div>
                                     <div className='flex items-center justify-between'>
                                         <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
-                                        { user.email == place.email && <p className='text-xs text-red-600'>Added by you</p>}
+                                        { user?.email == place.email && <p className='text-xs text-red-600'>Added by you</p>}
                                     </div>
                                 </div>
                             </Link>
