@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 
 import { MdOutlineBedroomParent, MdOutlineDelete, MdOutlineRateReview } from "react-icons/md";
-import { FaLandmark, FaMapPin } from "react-icons/fa6";
+import { FaInstagram, FaLandmark, FaMapPin } from "react-icons/fa6";
 import { GrUpdate } from 'react-icons/gr';
 import { FaMapMarkedAlt, FaMapMarkerAlt, FaRegCommentAlt, FaRegMoneyBillAlt } from 'react-icons/fa';
 import { TbCoinTaka } from 'react-icons/tb';
 import { GoCodeReview } from 'react-icons/go';
+import { AuthContext } from '../providers/AuthProvider';
 
 
 function SingleItem({place , handleDelete , applySort}) {
+    const {user} = useContext(AuthContext);
     let {                
         _id,
         name,
@@ -37,7 +39,10 @@ function SingleItem({place , handleDelete , applySort}) {
             <div class="p-4">
                 
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white flex  gap-2 items-center"><FaMapPin className='text-xl text-lime-500'></FaMapPin> {name}</h5>
-                <p className='flex items-center gap-2'><FaMapMarkedAlt className='text-orange-500'></FaMapMarkedAlt> {country}</p>
+                <div className='flex justify-between items-center'>
+                    <p className='flex items-center gap-2'><FaMapMarkedAlt className='text-orange-500'></FaMapMarkedAlt> {country}</p>
+                    {user?.email == email && !handleDelete && <p className='text-xs  text-red-500 font-bold flex items-center gap-1 mr-2'><FaInstagram className='text-xl text-blue-600'></FaInstagram> by you</p>}
+                </div>
                 <p class="my-6 font-normal text-gray-700 dark:text-gray-400 flex  gap-2 items-center"><GoCodeReview  className='text-4xl -mt-3 text-violet-700 font-extrabold'></GoCodeReview> {description}</p>
                 {
                     applySort && <p className='font-semibold flex items-center gap-1'><FaRegMoneyBillAlt className='text-2xl text-red-600'></FaRegMoneyBillAlt> Average Cost: {avgCost} <TbCoinTaka className='text-red-400'></TbCoinTaka></p>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { Link, useLoaderData } from 'react-router-dom';
 import { GrMapLocation } from "react-icons/gr";
-import { FaLocationCrosshairs } from "react-icons/fa6";
+import { FaInstagram, FaLocationCrosshairs } from "react-icons/fa6";
 import { MdCloudUpload } from "react-icons/md";
 import Spinner from '../components/Spinner';
 import { ToastContainer, toast } from 'react-toastify';
@@ -102,7 +102,7 @@ function HomePage() {
                                     </div>
                                     <div className='flex items-center justify-between'>
                                         <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
-                                        { user?.email == place.email && <p className='text-xs text-red-600'>Added by you</p>}
+                                        { user?.email == place.email && <p className='text-xs font-bold text-red-600 flex gap-1 items-center'><FaInstagram className='text-base text-blue-600'></FaInstagram> by you</p>}
                                     </div>
                                 </div>
                             </Link>

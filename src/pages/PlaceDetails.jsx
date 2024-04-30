@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { CiShoppingTag } from 'react-icons/ci';
 import { HiCurrencyDollar } from 'react-icons/hi';
@@ -9,15 +9,17 @@ import { FaRegUser } from "react-icons/fa";
 import { GrMapLocation } from 'react-icons/gr';
 import { IoCalendar, IoCalendarOutline, IoPricetagsOutline, IoTimerSharp } from 'react-icons/io5';
 import { TiLocationOutline } from 'react-icons/ti';
-import { FaMoneyBill1Wave, FaUserCheck, FaUsers } from 'react-icons/fa6';
+import { FaInstagram, FaMoneyBill1Wave, FaUserCheck, FaUsers } from 'react-icons/fa6';
 import { TbCoinTaka } from 'react-icons/tb';
 import { SlPeople, SlUserFollowing } from 'react-icons/sl';
 import { IoIosMail } from 'react-icons/io';
 import { FcClock } from 'react-icons/fc';
+import { AuthContext } from '../providers/AuthProvider';
 
 
 
 function Item({place}){
+    const {user} = useContext(AuthContext);
     const {                name,
         location,
         country,
@@ -55,7 +57,10 @@ function Item({place}){
                         <div className='flex justify-between w-full '> 
                           <div className='mb-4'> 
                               <p className="my-2 text-sm flex items-center gap-1 font-semibold text-gray-800"> <TiLocationOutline className='text-orange-400 text-2xl'></TiLocationOutline>  {location}</p>
-                              <p className="mb-1 ml-1 text-2xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>
+                              <div className='flex justify-between items-center w-[60vw]'>
+                                <p className="mb-1 ml-1 text-2xl flex items-center gap-2 font-bold   dark:text-gray-400"> <GrMapLocation className='text-red-500'></GrMapLocation>  {country}</p>
+                                { user?.email === email && <p className='font-bold text-sm text-red-500 flex gap-1 items-center'><FaInstagram className='text-xl text-blue-600'></FaInstagram> By you</p> }
+                              </div>
                           </div>
                           {!valid && <p className=' mt-4 mr-8 text-red-500 font-semibold text-xs'>This is a default image. User provided invalid image url </p>}
 
