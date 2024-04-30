@@ -97,12 +97,12 @@ function HomePage() {
                                 </img>
                                 <div className='mx-2 my-1'>
                                     <div className='flex items-center justify-between'>                            
-                                        <p className='font-semibold flex gap-1 items-center'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>
+                                        <p className='font-semibold flex gap-1 items-center text-sm'><FaLocationCrosshairs className='text-red-500'></FaLocationCrosshairs>{place.name}</p>
                                         <p className='flex gap-1 items-center font-semibold overflow-hidden overflow-ellipsis'><MdCloudUpload className='text-blue-500 text-bold'></MdCloudUpload><span className='text-xs'>{place.userName?place.userName:place.email}</span></p>
                                     </div>
                                     <div className='flex items-center justify-between'>
-                                        <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
-                                        { user?.email == place.email && <p className='text-xs font-bold text-red-600 flex gap-1 items-center'><FaInstagram className='text-base text-blue-600'></FaInstagram> by you</p>}
+                                        <p className='flex gap-1 items-center text-xs'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
+                                        { user?.email == place.email && <p className='text-xs font-medium text-red-600 flex gap-1 items-center'><FaInstagram className='text-blue-600'></FaInstagram> by you</p>}
                                     </div>
                                 </div>
                             </Link>
