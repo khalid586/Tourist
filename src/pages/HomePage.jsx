@@ -138,6 +138,7 @@ function HomePage() {
                 <p className='w-full min-w-[95vw] my-4 mb-8'>
                         <p className='my-8  mb-12 text-3xl font-bold text-center'>Thanks to the contributers</p>
                         <MarqueeSlider places = {places}></MarqueeSlider>
+                        <p className='text-xs text-center my-8 font-bold text-blue-500'>Upload a place information to see yourself in the contributors list</p>
                 </p>
              }
         </div>

@@ -29,7 +29,7 @@ function SingleItem({place , handleDelete , applySort}) {
     description =description.split('').slice(0, 60).join(''); 
   return (
         
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
             <img className='w-full rounded-t-lg' style={{ height:'290px'}} src = {photoUrl} alt="" 
             onError={(e) => {
                 e.target.src = 'https://i.ibb.co/MDBxfMK/pexels-photo-1450360.jpg'; 

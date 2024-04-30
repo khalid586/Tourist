@@ -54,7 +54,7 @@ import AllSpots from "../pages/AllSpots";
         },
         {
           path:'/details/:id',
-          element:<PlaceDetails></PlaceDetails>,
+          element:<ProtectedRoute><PlaceDetails></PlaceDetails></ProtectedRoute>,
           loader:({params})=>fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/details/${params.id}`)
         }
 
