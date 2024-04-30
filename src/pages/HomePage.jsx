@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { Link, useLoaderData } from 'react-router-dom';
 import { GrMapLocation } from "react-icons/gr";
@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import SingleItem from '../components/SingleItem';
 import MarqueeSlider from '../components/MarqueeSlider';
 import Banner from '../components/Banner';
+import { AuthContext } from '../providers/AuthProvider';
 
 function HomePage() {
     const [places,setPlaces] = useState([]);
@@ -18,7 +19,7 @@ function HomePage() {
     const [tab,setTab] = useState(1);
     const [sortedPlaces,setSortedPlaces] = useState([]);
     const [selectedCountry,setSelectedCountry] = useState('');
-
+    const {user} = useContext(AuthContext);
 
     function sortbyCountry(countryName,index){
         if(countryName == 'all'){
@@ -95,6 +96,7 @@ function HomePage() {
                                     </div>
                                     <div className='flex items-center justify-between'>
                                         <p className='flex gap-1 items-center'><GrMapLocation className='text-green-400'></GrMapLocation>{place.country}</p>
+                                        { user.email == place.email && <p className='text-xs text-red-600'>Added by you</p>}
                                     </div>
                                 </div>
                             </Link>

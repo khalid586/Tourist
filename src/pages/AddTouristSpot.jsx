@@ -9,7 +9,6 @@ import SingleItem from '../components/SingleItem';
 function AddTouristSpot() {
     const navigate = useNavigate();
     const {user} = useContext(AuthContext);
-    console.log(user)
   
 
     const [places,setPlaces] = useState([]);
