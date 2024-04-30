@@ -85,7 +85,7 @@ function AddTouristSpot() {
     }
 
     const active = 'bg-green-400 text-white' , nonActive = 'bg-gray-100 text-black';
-    const desc = "Carved by the mighty Colorado River over millions of years, its vast expanse of colorful cliffs and deep gorges stretches for over 275 miles, showcasing nature's raw power and geological beauty. Visitors are treated to breathtaking vistas at every turn, with layers of rock revealing a fascinating chronicle of Earth's history."
+    const desc = "Nestled within a vibrant cityscape, this lush garden sanctuary captivates visitors with its serene ambiance and vibrant flora. Verdant pathways wind through a tapestry of colorful blooms and verdant foliage, inviting tranquil moments of reflection amidst nature's embrace. Aromatic scents dance on the breeze, soothing the soul and rejuvenating the spirit."
     return (
      <>
         <Helmet>

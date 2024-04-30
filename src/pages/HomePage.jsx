@@ -8,9 +8,7 @@ import Spinner from '../components/Spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import SingleItem from '../components/SingleItem';
 import MarqueeSlider from '../components/MarqueeSlider';
-
-
-
+import Banner from '../components/Banner';
 
 function HomePage() {
     const [places,setPlaces] = useState([]);
@@ -66,6 +64,7 @@ function HomePage() {
         </Helmet>   
 
 
+        <Banner places = {places}></Banner>
 
         <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
             <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Latest</button>
