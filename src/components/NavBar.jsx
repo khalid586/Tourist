@@ -4,9 +4,10 @@ import { IoHomeOutline } from "react-icons/io5";
 import { BsBuilding } from "react-icons/bs";
 import { PiUserSwitchDuotone } from "react-icons/pi";
 import { AuthContext } from '../providers/AuthProvider';
-import { FcGlobe } from "react-icons/fc";
+import { FcGlobe, FcList } from "react-icons/fc";
 import { FaClipboardList } from "react-icons/fa";
 import { FaRegMap } from 'react-icons/fa6';
+import { IoMdAddCircleOutline } from 'react-icons/io';
 
 
 function NavBar() {
@@ -39,12 +40,12 @@ function NavBar() {
                   <span className="pl-2 self-center whitespace-nowrap text-base md:text-xl font-semibold dark:text-white">Tourist</span>
               </NavLink>
 
-              <div className='grid grid-cols-3 md:grid-cols-4  gapx-4 py-2 md:w-2/3 mt-2'>
+              <div className='grid grid-cols-3 md:grid-cols-4  py-2 mt-2 mx-'>
                   <NavLink to="/" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex   justify-center'}><p className='flex gap-2 items-center'><IoHomeOutline className='text-green-500'></IoHomeOutline> Home</p></NavLink>
-                  <NavLink to="/all_spots" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2 flex justify-center'}><p className='flex gap-2 items-center'><FaRegMap className='text-green-500'></FaRegMap> All Spots</p></NavLink>
-                  <NavLink to="/add_spot" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex justify-center'}><p className='flex gap-2 items-center'><FcGlobe className='text-green-500'></FcGlobe> Add Spot</p></NavLink>{
-        user &&  <NavLink to="/mylist" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2 flex justify-center'}>     <p className='items-center flex gap-2'><FaClipboardList className='text-green-500'></FaClipboardList>My List</p></NavLink>
-        }
+                  <NavLink to="/all_spots" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2 flex justify-center'}><p className='flex gap-2 items-center'><FcGlobe className='text-green-500'></FcGlobe> All Spots</p></NavLink>
+                  <NavLink to="/add_spot" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex justify-center'}><p className='flex gap-1 items-center'><IoMdAddCircleOutline className='text-green-500 text-base'></IoMdAddCircleOutline>Add Place </p></NavLink>{ user &&  
+                  <NavLink to="/mylist" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2 flex justify-center'}>     <p className='items-center flex gap-2'><FcList className='text-green-500'></FcList>My List</p></NavLink>
+                }
               </div> 
 
               <div className='pt-4 mr-2'> 

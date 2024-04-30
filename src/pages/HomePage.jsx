@@ -65,12 +65,18 @@ function HomePage() {
         </Helmet>   
 
 
-        <Banner places = {places}></Banner>
+        {
+            !loading &&
+            <Banner places = {places}></Banner>
+        }
 
-        <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
-            <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Latest</button>
-            <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>Countries</button>
-        </div>  
+        {
+            !loading &&
+            <div className='text-xs flex justify-center m-4 p-2 gap-2 font-semibold'>
+                <button className={`${tab === 1? active:nonActive}  px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(1)}>Latest</button>
+                <button className={`${tab === 2 ? active:nonActive} px-4 py-2 rounded-3xl  duration-500`} onClick={()=>setTab(2)}>Countries</button>
+            </div>  
+        }
         {
         
         loading ? <Spinner></Spinner>:
