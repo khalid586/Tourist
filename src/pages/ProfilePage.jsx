@@ -34,14 +34,20 @@ function ProfilePage() {
                     user ? 
                     <div className=' m-4 rounded-2xl text-center my-8'>
                             <p className='my-2 text-2xl font-bold'>Welcome!!!</p>
-                            <div className='items-center justify-center flex gap-2'>
-                                <p className='flex justify-center my-4'>
-                                    {user?.photoURL?<img className='p-1 border-green-400 border-4 rounded-full w-[40px] h-[40px]' src= {imgAvailable?user.photoURL:'/All assets/icons8-user-80.png'} onError={handleError} alt="" />:"No picture available"}
-                                </p>
-                                <p className='font-bold text-green-400'>{user?.displayName?user.displayName:'User name is not registered'}</p>
+                            <div className='flex justify-center'>
+                                <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                        <div class="flex flex-col items-center py-10 pt-14">
+                                            <img class="w-24 h-24 mb-3 rounded-full border-4 border-green-500 shadow-lg" src={user.photoURL} alt="Bonnie image"/>
+                                            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{user.displayName}</h5>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">{user.email}</span>
+                                            <div class="flex">
+                                                {/* <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add friend</a>
+                                                <a href="#" class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Message</a> */}
+                                            </div>
+                                        </div>
+                                        <button className='mb-8 btn2' onClick={handleLogout}> Logout</button>
+                                </div>
                             </div>
-                            <p>{user.email}</p>
-                            <button className='btn2 m-4' onClick={handleLogout}> Logout</button>
                     </div> 
                     
                     :
@@ -51,6 +57,7 @@ function ProfilePage() {
             </div>
         }
         <ToastContainer></ToastContainer>
+
         </div>
     )
 }
