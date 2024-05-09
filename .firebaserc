@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "assignment10-22b3d"
-  }
+    "default": "tourist-fa667",
+    "dist": "tourist-fa667"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
