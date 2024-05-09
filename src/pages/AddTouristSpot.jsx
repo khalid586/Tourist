@@ -4,7 +4,9 @@ import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { ToastContainer, toast } from 'react-toastify';
 import SingleItem from '../components/SingleItem';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 function AddTouristSpot() {
     const navigate = useNavigate();

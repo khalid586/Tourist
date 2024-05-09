@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaSortAlphaDown } from 'react-icons/fa';
 import Spinner from '../components/Spinner';
 import { Helmet } from 'react-helmet-async';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 function AllSpots() {
 

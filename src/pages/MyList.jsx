@@ -6,6 +6,9 @@ import Spinner from '../components/Spinner'
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import SingleItem from '../components/SingleItem';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 
 function MyList() {

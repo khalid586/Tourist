@@ -10,6 +10,9 @@ import SingleItem from '../components/SingleItem';
 import MarqueeSlider from '../components/MarqueeSlider';
 import Banner from '../components/Banner';
 import { AuthContext } from '../providers/AuthProvider';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 function HomePage() {
     const [places,setPlaces] = useState([]);
@@ -20,6 +23,7 @@ function HomePage() {
     const [sortedPlaces,setSortedPlaces] = useState([]);
     const [selectedCountry,setSelectedCountry] = useState('');
     const {user} = useContext(AuthContext);
+
 
     function sortbyCountry(countryName,index){
         if(countryName == 'all'){
