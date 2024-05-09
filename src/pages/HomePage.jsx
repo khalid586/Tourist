@@ -12,7 +12,7 @@ import Banner from '../components/Banner';
 import { AuthContext } from '../providers/AuthProvider';
 import dotenv from 'dotenv';
 
-dotenv.config();
+
 
 function HomePage() {
     const [places,setPlaces] = useState([]);

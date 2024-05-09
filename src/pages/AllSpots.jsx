@@ -7,7 +7,6 @@ import Spinner from '../components/Spinner';
 import { Helmet } from 'react-helmet-async';
 import dotenv from 'dotenv';
 
-dotenv.config();
 
 function AllSpots() {
 

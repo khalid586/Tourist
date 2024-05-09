@@ -14,7 +14,6 @@ import UpdatePage from "../pages/UpdatePage";
 import AllSpots from "../pages/AllSpots";
 import dotenv from 'dotenv';
 
-dotenv.config();
   
  export const router = createBrowserRouter([
     {

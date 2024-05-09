@@ -5,7 +5,6 @@ import { AuthContext } from '../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import dotenv from 'dotenv';
 
-dotenv.config();
 
 function UpdatePage() {
     const data = useLoaderData();
