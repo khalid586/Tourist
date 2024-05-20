@@ -41,7 +41,7 @@ function HomePage() {
     useEffect(()=>{
         fetch('https://b9a10-server-side-khalid586-theta.vercel.app/countries')
         .then(res => res.json())
-        .then(data => {console.log(data); setCountries(data)})
+        .then(data => {setCountries(data)})
     },[])
     
     useEffect(()=>{

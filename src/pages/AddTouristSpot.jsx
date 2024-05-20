@@ -65,7 +65,7 @@ function AddTouristSpot() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            //console.log(data)
             if(data.acknowledged) toast.success('Spot added successfully')
             setPlaces([...places,place]);
             setTimeout(()=>{

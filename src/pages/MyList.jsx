@@ -55,7 +55,7 @@ function MyList() {
         fetch(`https://b9a10-server-side-khalid586-theta.vercel.app/places/${user.email}`)
         .then(res => res.json())
         .then(data =>{
-            console.log(data);
+            //console.log(data);
             setPlaces(data);
             setLoading(false);
         })

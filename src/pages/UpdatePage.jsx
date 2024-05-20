@@ -68,7 +68,7 @@ function UpdatePage() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
                 if (data.acknowledged) {
                     if (data.modifiedCount) {
                         toast.success("Details updated Successfully");
